@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,16 @@ namespace TemplateWriter.Services
 {
     public interface IApplicationService
     {
-        void SetImageToPictureBox(PictureBox templateBox);
+        void SetImageByFileDialog();
+
+        string GetImagePath();
 
         void SetTextTemplate(string textTemplate);
 
-        string GetTextTemplate();
+        void UploadCSVFilePath();
+
+        void SaveImages();
+
+        void SetTextLocation(Point location);
     }
 }

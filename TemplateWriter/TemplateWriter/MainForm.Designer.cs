@@ -30,6 +30,7 @@
         {
             this.uploadImage = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uploadCSV = new System.Windows.Forms.Button();
             this.templateTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
@@ -52,16 +53,27 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uploadCSV);
             this.groupBox1.Controls.Add(this.templateTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.save);
             this.groupBox1.Controls.Add(this.uploadImage);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 316);
+            this.groupBox1.Size = new System.Drawing.Size(297, 310);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings Pannel";
+            // 
+            // uploadCSV
+            // 
+            this.uploadCSV.Location = new System.Drawing.Point(20, 124);
+            this.uploadCSV.Name = "uploadCSV";
+            this.uploadCSV.Size = new System.Drawing.Size(118, 23);
+            this.uploadCSV.TabIndex = 5;
+            this.uploadCSV.Text = "Загрузить csv";
+            this.uploadCSV.UseVisualStyleBackColor = true;
+            this.uploadCSV.Click += new System.EventHandler(this.uploadCSV_Click);
             // 
             // templateTextBox
             // 
@@ -82,7 +94,7 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(110, 237);
+            this.save.Location = new System.Drawing.Point(6, 209);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(116, 23);
             this.save.TabIndex = 2;
@@ -146,6 +158,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox templateTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button uploadCSV;
     }
 }
 

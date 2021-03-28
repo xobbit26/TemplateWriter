@@ -9,6 +9,10 @@ namespace TemplateWriter.Repositories
 {
     interface IApplicationStateRepository
     {
+        void SetImagePath(string imagePath);
+
+        string GetImagePath();
+
         void SetTextLocation(Point textLocation);
 
         Point GetTextLocation();
@@ -16,5 +20,9 @@ namespace TemplateWriter.Repositories
         void SetTextTemplate(string textTemplate);
 
         string GetTextTemplate();
+
+        void SetCSVFilePath(string fileName);
+
+        string GetCSVFilePath();
     }
 }

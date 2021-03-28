@@ -9,17 +9,31 @@ namespace TemplateWriter.Repositories
 {
     class ApplicationStateRepository : IApplicationStateRepository
     {
+        private string _imagePath;
+        private Point _textLocation;
         private string _textTemplate;
+        private string _csvFilePath;
 
-               
+
+        public void SetImagePath(string imagePath)
+        {
+            _imagePath = imagePath;
+        }
+
+        public string GetImagePath()
+        {
+            return _imagePath;
+        }
+
+
         public Point GetTextLocation()
         {
-            throw new NotImplementedException();
+            return _textLocation;
         }
 
         public void SetTextLocation(Point textLocation)
         {
-            throw new NotImplementedException();
+            _textLocation = textLocation;
         }
 
         public string GetTextTemplate()
@@ -31,5 +45,16 @@ namespace TemplateWriter.Repositories
         {
             _textTemplate = textTemplate;
         }
+
+        public void SetCSVFilePath(string filePath)
+        {
+            _csvFilePath = filePath;
+        }
+
+        public string GetCSVFilePath()
+        {
+            return _csvFilePath;
+        }
+
     }
 }
