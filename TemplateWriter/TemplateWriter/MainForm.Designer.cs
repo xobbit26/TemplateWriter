@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.upload = new System.Windows.Forms.Button();
+            this.uploadImage = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.templateTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
             this.templateBox = new System.Windows.Forms.PictureBox();
@@ -40,22 +40,22 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // upload
+            // uploadImage
             // 
-            this.upload.Location = new System.Drawing.Point(20, 34);
-            this.upload.Name = "upload";
-            this.upload.Size = new System.Drawing.Size(123, 23);
-            this.upload.TabIndex = 1;
-            this.upload.Text = "Upload Image";
-            this.upload.UseVisualStyleBackColor = true;
-            this.upload.Click += new System.EventHandler(this.upload_Click);
+            this.uploadImage.Location = new System.Drawing.Point(20, 34);
+            this.uploadImage.Name = "uploadImage";
+            this.uploadImage.Size = new System.Drawing.Size(123, 23);
+            this.uploadImage.TabIndex = 1;
+            this.uploadImage.Text = "Upload Image";
+            this.uploadImage.UseVisualStyleBackColor = true;
+            this.uploadImage.Click += new System.EventHandler(this.uploadImage_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.templateTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.save);
-            this.groupBox1.Controls.Add(this.upload);
+            this.groupBox1.Controls.Add(this.uploadImage);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(297, 316);
@@ -63,13 +63,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings Pannel";
             // 
-            // textBox1
+            // templateTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.templateTextBox.Location = new System.Drawing.Point(78, 78);
+            this.templateTextBox.Name = "templateTextBox";
+            this.templateTextBox.Size = new System.Drawing.Size(181, 20);
+            this.templateTextBox.TabIndex = 3;
+            this.templateTextBox.TextChanged += new System.EventHandler(this.templateTextBox_TextChanged);
             // 
             // label1
             // 
@@ -139,12 +139,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button upload;
+        private System.Windows.Forms.Button uploadImage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.PictureBox templateBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox templateTextBox;
         private System.Windows.Forms.Label label1;
     }
 }

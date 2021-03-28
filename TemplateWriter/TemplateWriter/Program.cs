@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TemplateWriter.Repositories;
+using TemplateWriter.Services;
 
 namespace TemplateWriter
 {
@@ -16,7 +18,13 @@ namespace TemplateWriter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(GetMainFormDI()));
+        }
+
+        private static IApplicationService GetMainFormDI()
+        {
+            var repo = new ApplicationStateRepository();
+            return new ApplicationService(repo);
         }
     }
 }

@@ -1,36 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TemplateWriter.Services;
 
 namespace TemplateWriter
 {
     public partial class MainForm : Form
     {
         private Point _choosedLocation;
-        private string _stringToWrite;
 
-        public MainForm()
+        private IApplicationService _appService;
+
+        public MainForm(IApplicationService appService)
         {
             InitializeComponent();
+            _appService = appService;
         }
 
-        private void upload_Click(object sender, EventArgs e)
+        private void uploadImage_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select Image";
-            openFileDialog.Filter = "Image File (*.jpg; *.jpeg;)|*.jpg; *.jpeg;";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                templateBox.Image = new Bitmap(openFileDialog.FileName);
-            }
+            _appService.SetImageToPictureBox(templateBox);
         }
 
         private void download_Click(object sender, EventArgs e)
@@ -61,27 +51,24 @@ namespace TemplateWriter
         {
             var mouseEvent = e as MouseEventArgs;
 
-            if (mouseEvent != null && !String.IsNullOrEmpty(_stringToWrite))
+            var currentText = _appService.GetTextTemplate();
+            if (mouseEvent != null && !string.IsNullOrEmpty(currentText))
             {
                 _choosedLocation = mouseEvent.Location;
                 var image = templateBox.Image;
 
-                Console.WriteLine($"mouse location {mouseEvent.Location}");
-                Console.WriteLine($"template box size {templateBox.Size}");
-                Console.WriteLine($"Image size {image.Size}"); 
-
                 var graphix = Graphics.FromImage(image);
                 var font = new Font("TimesNewRoman", 30, FontStyle.Italic, GraphicsUnit.Pixel);
-                graphix.DrawString(_stringToWrite, font, Brushes.Black, _choosedLocation);
+                graphix.DrawString(currentText, font, Brushes.Black, _choosedLocation);
 
                 templateBox.Image = image;
             }
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void templateTextBox_TextChanged(object sender, EventArgs e)
         {
-            _stringToWrite = textBox1.Text;
+            _appService.SetTextTemplate(templateTextBox.Text);
         }
     }
 }
